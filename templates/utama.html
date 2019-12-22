@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block banner %}
+<section id="banner">
+	<div class="inner">
+		<h1>Chord Finder</h1>
+		<p>Ingin cover lagu orang tapi bingung kuncinya apa?<br />
+			web ini dibuat untuk kamu yang ingin mencari kunci kunci lagu yang kamu sukai.<br />
+			website ini dibuat oleh <a href="#">Arai</a> </p>
+	</div>
+	<video autoplay loop muted playsinline src="{{ url_for('static', filename='images/banner.mp4')}}"></video>
+</section>
+{% endblock %}
+{% block konten %}
+<header class="special">
+	<h2>Mudah!!!</h2>
+	<P>Tinggal pilih band/artis dari lagu yang kamu ingin tau kuncinya dan tekan pilih, kemudian pilih lagunya dan munculah kunci dari lagu yang kamu cari (gunakan feature search di browser mu untuk memudahkan)</P>
+</header>
+	<div class="content">
+		<table class="table table-hover">
+			<thead>
+			<tr>
+				<th>Nama</th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for row in hasil %}
+			<tr>
+				<td style="width:90%">{{ row.0 }}</td>
+				<td style="width:10`%"><button type="button" name="{{ row.1 }}" class="btn btn-info" onclick="location.href='/{{ row.0 }}'">Pilih</button></td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}
+
+
