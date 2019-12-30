@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block heading %}
+{% endblock %}
+{% block konten %}
+<div class="content">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            {% for row in hasil %}
+                <th><h3>Chord {{ row.0}}</h3> </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td style="width:90%"><textarea rows="20" style="width:100%" readonly>{{ row.1 }}</textarea></td>
+            <td style="width:10%"><button type="button" class="btn btn-info" onclick="location.href='/'">Kembali</button></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
